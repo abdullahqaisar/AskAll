@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "AskAll AI",
+    "version": "1.0",
+    "description": "Ask the same question to ChatGPT and Claude",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs",
+        "tabGroups",
+        "cookies"
+    ],
+    "host_permissions": [
+        "https://chatgpt.com/*",
+        "https://claude.ai/*"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://chatgpt.com/*", "https://claude.ai/*"],
+            "js": ["content.js"]
+        }
+    ]
+}
